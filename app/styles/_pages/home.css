@@ -231,8 +231,8 @@
     width: 300px;
     margin-top: 30px;
     height: 69px;
-    box-sizing: border-box;
-    padding: 10px 0;
+    /*box-sizing: border-box;*/
+
 }
 .gallery-thumbs .swiper-wrapper {
     width: 90px;
