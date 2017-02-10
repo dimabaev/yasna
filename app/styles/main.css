@@ -1,0 +1,29 @@
+@import "./_element/_variable.css";
+@import "./_pages/home.css";
+@import "./normalize.css";
+
+
+/*=========================
+Основные стили
+==========================*/
+.container {
+    display: flex;
+    flex-flow: column;
+    width: 1170px;
+    margin: auto;
+    font-family: 'roboto';
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+

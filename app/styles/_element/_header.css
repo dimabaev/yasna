@@ -1,0 +1,27 @@
+/*=========================
+Стили для шапки
+==========================*/
+.navbar {
+  background: none;
+  margin-bottom: 20px;
+  animation: animateHeader 500ms ease-in-out forwards;
+}
+
+.nav-item {
+  margin-right: 20px; 
+}
+
+
+/*=========================
+Анимация для шапки
+==========================*/
+@keyframes animateHeader {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
