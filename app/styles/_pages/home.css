@@ -3,6 +3,18 @@
 .block__projectInd {
     width: 980px;
     margin: auto;
+    transition: all .3s;
+    @media all and (min-width: 600px) and (max-width: 800px) {
+        width: 700px;
+    }
+
+    @media all and (min-width: 600px) and (max-width: 800px) {
+        width: 500px;
+    }
+
+    @media all and (min-width: 300px) and (max-width: 600px) {
+        width: 400px;
+    }
 }
 /*СТИЛИ ЗАГАЛОВКА*/
 .block__projectInd--title {
@@ -42,7 +54,7 @@
     .block__slider--sliderBox {
         width: 900px;
         position: relative;
-        height: 377px;
+        height: auto;
         z-index: 2;
         background: #fff;
         margin: auto;
@@ -50,6 +62,16 @@
         border-radius: 3px;
         top: -400px;
         padding: 30px;
+     
+
+        @media all and (min-width: 600px) and (max-width: 1000px) {
+           width: 400px;
+
+        }
+
+        @media all and (min-width: 300px) and (max-width: 600px) {
+             width: 400px;
+        }
     }
 }
 
@@ -73,22 +95,45 @@
     }
 }
 
+/*стили для слайда*/
 .swiper-slide {
     display: flex;
+
+    @media all and (min-width: 300px) and (max-width: 1000px) {
+        flex-flow: column;
+    }
 }
 
 .block__slider--sliderList {
     height: auto;
     width: 400px;
-    flex: 1 1 300px;
-    margin-right: 20px
+    margin-right: 20px;
+
+    @media all and (min-width: 300px) and (max-width: 1000px) {
+        margin-right: none;
+    }
+}
+
+.owl-carousel {
+    margin-bottom: 20px;
+}
+
+.item {
+    cursor: pointer;
+}
+
+#sync1 {
+    .item {
+        width: 400px;
+    }
 }
 
 .block__slider--information {
-    width: 300px;
-    flex: 1 1 400px;
     height: auto;
-    margin-left: auto;
+
+    @media all and (min-width: 600px) and (max-width: 800px) {
+        
+    }
 
     .block__slider--title {
         font-size: 18px;
@@ -162,7 +207,7 @@
     flex-flow: column;
     justify-content: center;
     position: relative;
-    margin-top: -200px;
+    margin-top: -280px;
     width: 100%;
 
     .block__calculation--title {
@@ -196,6 +241,7 @@
 
     .block__calculation--call {
         margin: auto;
+        margin-bottom: 20px;
 
         .block__calculation--button {
             background: #d82323;
@@ -203,45 +249,145 @@
             border-radius: 5px;
             padding: 16px 46px;
             color: #fff;
+            transition: all .3s;
+            cursor: pointer;
+
+            &:hover {
+                color: #ddd;
+                box-shadow: 0px 15px 25px rgba(0, 0, 0, .2)
+            }
         }
 
     }
 
 }
 
-/*.main-slider .swiper-wrapper .swiper-slide {
-    display: flex;
-}*/
+/*стили для модального окна*/
 
-.swiper-container {
-    width: 100%;
-    height: 100%;
+.block__modal {
+    position: fixed;
+    display: none;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    background: rgba(0,0,0,0.7);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
-.swiper-slide {
-    background-size: cover;
-    background-position: center;
-}
-.gallery-top {
-    height: 80%;
+header.block__modal--header {
     width: 100%;
-}
-.gallery-thumbs {
     display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .block__modal--close {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 10px;
+        height: 10px;
+        border: 2px solid #d82323;
+        color: #d82323;
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 2px;
+    }
+
+    .block__modal--title {
+        color: #fff;
+        margin-right: 20px;
+    }
+
+}
+
+/*класс на замену
+=======================================*/
+.flex {
+    position: fixed;
+    display: flex;
+    opacity: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    background: rgba(0,0,0,0.3);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    animation: modal-animation 0.3s cubic-bezier(.57,.1,.55,.94) forwards;
+}
+
+/*анимация для модального окна с формой
+=======================================*/
+@keyframes modal-animation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.block__modal--form {
+    background: #fff;
+    border-radius: 3px;
+    height: auto;
     width: 300px;
-    margin-top: 30px;
-    height: 69px;
-    /*box-sizing: border-box;*/
+    padding: 20px;
+}
 
+.block__modal--group {
+    display: flex;
+    flex-flow: column;
+    margin-bottom: 20px;
+
+    .block__modal--label {
+        font-weight: bold;
+        color: #5f5f5f;
+        margin-bottom: 10px;
+    }
+
+    input {
+        padding-bottom: 5px;
+        border: none;
+        border-bottom: 1px solid #ddd;
+        outline: none;
+        color: #d82323;
+        font-weight: bold;
+    }
+    input::placeholder{
+        color: #ddd;
+    }
 }
-.gallery-thumbs .swiper-wrapper {
-    width: 90px;
-    height: 69px;
-    width: 20%;
+
+.block__modal--submit {
+    display: flex;
+    justify-content: center;
+
+    input {
+        border: none;
+        border-radius: 5px;
+        padding: 10px 30px;
+        background: #d82323;
+        color: #fff;
+        cursor: pointer;
+        transition: all .3s;
+
+        &:hover {
+            box-shadow: 0px 15px 25px rgba(0, 0, 0, .1);
+            color: #ddd;
+        }
+
+    }
 }
-.gallery-thumbs .swiper-slide-active {
-    opacity: 1;
-}
+
+
+
+
 
 
 

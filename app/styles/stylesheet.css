@@ -3361,7 +3361,7 @@ input:focus, textarea:focus, select:focus{
 }
 
 @media (max-width: 1199px) {
-	.container{width: auto;}
+	.container__block{width: auto;}
 	#top2 .container{padding:0 10px;}
 	header .links{display:none;}
 	header{margin: 0 10px;}
