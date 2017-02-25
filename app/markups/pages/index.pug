@@ -6,86 +6,95 @@ block title
 block content
 
   .container
-    .block__projectInd
-      .block__projectInd--title
-        h1.block__projectInd--h1 ИЗГОТОВЛЕНИЕ ПО ИНДИВИДУАЛЬНОМУ ПРОЕКТУ
-      .block__projectInd--text
-        p.block__projectInd--p
-          | Производственное объединение «Завод теплиц «Ясна» предлагает изготовление металлоконструкций по индивидуальному заказу: 
-        p.block__projectInd--p
-          | мы можем изготовить под ключ нестандартную теплицу, козырек, навес, беседку или любую другую металлоконструкцию по вашему чертежу.  
-        p.block__projectInd--p
-          | Уникальный опыт более 8 лет в производстве металлоконструкций научил нас заботиться о каждом клиенте. Производственный процесс отлажен до минут. 
-        p.block__projectInd--p
-          | Специалисты с высшим техническим образованием быстро изготовят необходимые чертежи с расчетом нагрузок и рассчитают необходимую прочность конструкции. 
-        p.block__projectInd--p
-          | Все конструкции изготавливаются по немецкой технологии на современном оборудовании. Покраска изделий производится качественной итальянской полимерной краской в высокотехнологичной покрасочной камере. Весь процесс сварки производится сварщиками с опытом не менее 5 лет и тщательно контролируется. 
-        p.block__projectInd--p
-          | Перед выдачей изделие проходит полный контроль качества. 
-  .block__slider
-    .block__slider--positiinImg
+    .row
+      .col-xs-12.col-sm-12.col-md-12
+        div.title
+          h3.text-center ИЗГОТОВЛЕНИЕ ПО ИНДИВИДУАЛЬНОМУ ПРОЕКТУ
+        div.text
+          p.text-center.text-width
+            | Производственное объединение «Завод теплиц «Ясна» предлагает изготовление металлоконструкций по индивидуальному заказу: 
+          p.text-center.text-width
+            | мы можем изготовить под ключ нестандартную теплицу, козырек, навес, беседку или любую другую металлоконструкцию по вашему чертежу. 
+          p.text-center.text-width
+            | Уникальный опыт более 8 лет в производстве металлоконструкций научил нас заботиться о каждом клиенте. Производственный процесс отлажен до минут.
+          p.text-center.text-width
+            | Специалисты с высшим техническим образованием быстро изготовят необходимые чертежи с расчетом нагрузок и рассчитают необходимую прочность конструкции.
+          p.text-center.text-width
+            | Все конструкции изготавливаются по немецкой технологии на современном оборудовании. Покраска изделий производится качественной итальянской полимерной краской в высокотехнологичной покрасочной камере. Весь процесс сварки производится сварщиками с опытом не менее 5 лет и тщательно контролируется.  
+          p.text-center.text-width
+            | Перед выдачей изделие проходит полный контроль качества.
+  .position-img
     .container
-      h2.block__slider--titleH1 Наши работы
-      .block__slider--sliderBox
-        .block__slider--slider
+      .position-title
+        h2 Наши работы
+      .swiper-container
+        .swiper-wrapper
           .swiper-slide
-            .block__slider--sliderList
-              #sync1.owl-carousel.owl-theme
-                .item
-                  img(src="./img/2.jpg", alt="")
-								  
-                .item
-                  img(src="./img/2.jpg", alt="")
-  									  
-                .item
-                  img(src="./img/2.jpg", alt="")
-    									
-              #sync2.owl-carousel.owl-theme
-                .item
-                  img(src="./img/2.jpg", alt="", style="width: 120px")
-         									  
-                .item
-                  img(src="./img/2.jpg", alt="", style="width: 120px")
-         									  
-                .item
-                  img(src="./img/2.jpg", alt="", style="width: 120px")       
-            .block__slider--information
-              h3.block__slider--title 
-                | Козырек-укрытие для технического люка бассейна
-              .block__slider--text.margin--text
-                p.block__slider--item
-                  | 8570
-                  span руб. финальная стоимость
-                p.block__slider--item
-                  | 5
-                  span дней на разработку
-              blockquote.block__slider--blockquote
-                p.block__slider--text
-                  | Изготовили каркас аккуратно, все подошло без подгонки. Цвет и покраска полностью удовлетворяют, по срокам изготовления без нарушений. Думаю, при следующем заказе буду обращаться в эту компанию «Ясна».
-              p.block__slider--name
-                | — Алла Викторовна, покупатель
-          //- .swiper-button-next
-          //- .swiper-button-prev
-      .block__calculation
-        h2.block__calculation--title
-          | Рассчитать стоимость моего проекта
-        .block__calculation--text
-          p.block__calculation--p
-            |Для расчета стоимости позвоните по телефону горячей линии
-            span 287-88-44
-          p.block__calculation--pItalic
-            | либо
-        .block__calculation--call
-          button.block__calculation--button.callme_button
-            | Закажите обратный звонок
-        .block__calculation--text
-          p.block__calculation--pItalic
-            | мы рассчитаем стоимость и любезно перезвоним
-          
-          
-     
-             
-    
+            .col-md-5.col-sm-12.products__slideshow
+              .img-lg
+                .wrapper-img.photo-big
+                  a.products__slideshow-display
+                    img(src="./img/2.jpg").img-lg--img.products__slideshow-img
+              .img-xs
+                .wrapper-img.products__slideshow-item
+                  a.products__slideshow-link
+                    img(src="./img/2.jpg").img-xs--img
+                .wrapper-img.products__slideshow-item
+                  a.products__slideshow-link
+                    img(src="./img/2.jpg").img-xs--img
+                .wrapper-img.products__slideshow-item
+                  a.products__slideshow-link
+                    img(src="./img/2.jpg").img-xs--img
+            .col-md-7.col-sm-12
+              .title
+                h4.title-h2 Козырек-укрытие для технического люка бассейна
+              .content
+                p.content-text 8570
+                  span.content-text--span руб. финальная стоимость
+                p.content-text 5
+                  span.content-text--span дней на разработку
+              blockquote.quote
+                p Изготовили каркас аккуратно, все подошло без подгонки. Цвет и покраска полностью удовлетворяют, по срокам изготовления без нарушений. Думаю, при следующем заказе буду обращаться в эту компанию «Ясна».
+                p.quote-name.text-right — Алла Викторовна, покупатель
+          .swiper-slide
+            .col-md-5.col-sm-12.products__slideshow
+              .img-lg
+                .wrapper-img.photo-big
+                  a.products__slideshow-display
+                    img(src="./img/2.jpg").img-lg--img.products__slideshow-img
+              .img-xs
+                .wrapper-img.products__slideshow-item
+                  a.products__slideshow-link
+                    img(src="./img/2.jpg").img-xs--img
+                .wrapper-img.products__slideshow-item
+                  a.products__slideshow-link
+                    img(src="./img/2.jpg").img-xs--img
+                .wrapper-img.products__slideshow-item
+                  a.products__slideshow-link
+                    img(src="./img/2.jpg").img-xs--img
+            .col-md-7.col-sm-12
+              .title
+                h4.title-h2 Козырек-укрытие для технического люка бассейна
+              .content
+                p.content-text 8570
+                  span.content-text--span руб. финальная стоимость
+                p.content-text 5
+                  span.content-text--span дней на разработку
+              blockquote.quote
+                p Изготовили каркас аккуратно, все подошло без подгонки. Цвет и покраска полностью удовлетворяют, по срокам изготовления без нарушений. Думаю, при следующем заказе буду обращаться в эту компанию «Ясна».
+                p.quote-name.text-right — Алла Викторовна, покупатель
+  .container
+    .row
+      div.title-calculation
+        h4.text-center.style-text--title Рассчитать стоимость моего проекта
+        p.text-center.text-calculation
+          | Для расчета стоимости позвоните по телефону горячей линии
+          span.text-calculation--span 287-88-44
+        p.text-center.text-italic Либо
+        div.text-center.button-block
+          a(href="").button-link Закажите обратный звонок
+        p.text-center.text-italic--button
+          | мы рассчитаем стоимость и любезно перезвоним
 
     
       

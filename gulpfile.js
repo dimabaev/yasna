@@ -134,6 +134,23 @@ gulp.task('assets', function() {
 });
 
 /*==============================
+Сборка javascript
+===============================*/
+
+gulp.task('script', function() {
+  return gulp.src('app/js/*.js')
+      .pipe(plumber({
+        errorHandler: notify.onError(err => ({
+          title:   'Webpack',
+          message: err.message
+        }))
+      }))
+      .pipe(named())
+      .pipe(gulpIf(!isDevelopment, uglify()))
+      .pipe(gulp.dest('public/js'))
+});
+
+/*==============================
 STYLES:ASSETS
 ===============================*/
 
@@ -146,73 +163,73 @@ gulp.task('styles:assets', function() {
 WEBPACK (ИНТЕГРАЦИЯ В GULP)
 ===============================*/
 
-gulp.task('webpack', function(callback) {
-  let firstBuildReady = false;
+// gulp.task('webpack', function(callback) {
+//   let firstBuildReady = false;
 
-  function done(err, stats) {
-    firstBuildReady = true;
+//   function done(err, stats) {
+//     firstBuildReady = true;
 
-    if (err) { // hard error, see https://webpack.github.io/docs/node.js-api.html#error-handling
-      return;  // emit('error', err) in webpack-stream
-    }
+//     if (err) { // hard error, see https://webpack.github.io/docs/node.js-api.html#error-handling
+//       return;  // emit('error', err) in webpack-stream
+//     }
 
-    gulplog[stats.hasErrors() ? 'error' : 'info'](stats.toString({
-      colors: true
-    }));
+//     gulplog[stats.hasErrors() ? 'error' : 'info'](stats.toString({
+//       colors: true
+//     }));
 
-  }
+//   }
 
-  let options = {
-      output: {
-        publicPath: './app/js/',
-        filename: isDevelopment ? '[name].js' : '[name]-[chunkhash:10].js'
-      },
-      watch:   isDevelopment,
-      devtool: isDevelopment ? 'cheap-module-inline-source-map' : null,
-      module:  {
-        loaders: [{
-          test:    /\.js$/,
-          include: path.join(__dirname, "app"),
-          loader:  'babel?presets[]=es2015'
-        }]
-      },
-      plugins: [
-        new webpack.NoErrorsPlugin()
-      ]
-  };
+//   let options = {
+//       output: {
+//         publicPath: './app/js/',
+//         filename: isDevelopment ? '[name].js' : '[name]-[chunkhash:10].js'
+//       },
+//       watch:   isDevelopment,
+//       devtool: isDevelopment ? 'cheap-module-inline-source-map' : null,
+//       module:  {
+//         loaders: [{
+//           test:    /\.js$/,
+//           include: path.join(__dirname, "app"),
+//           loader:  'babel?presets[]=es2015'
+//         }]
+//       },
+//       plugins: [
+//         new webpack.NoErrorsPlugin(),
+//       ]
+//   };
 
-  if (!isDevelopment) {
-    options.plugins.push(new AssetsPlugin({
-      filename: 'webpack.json',
-      path:     __dirname + '/manifest',
-      processOutput(assets) {
-        for (let key in assets) {
-          assets[key + '.js'] = assets[key].js.slice(options.output.publicPath.length);
-          delete assets[key];
-        }
-        return JSON.stringify(assets);
-      }
-    }));
-  }
+//   if (!isDevelopment) {
+//     options.plugins.push(new AssetsPlugin({
+//       filename: 'webpack.json',
+//       path:     __dirname + '/manifest',
+//       processOutput(assets) {
+//         for (let key in assets) {
+//           assets[key + '.js'] = assets[key].js.slice(options.output.publicPath.length);
+//           delete assets[key];
+//         }
+//         return JSON.stringify(assets);
+//       }
+//     }));
+//   }
 
-  return gulp.src('app/js/*.js')
-      .pipe(plumber({
-        errorHandler: notify.onError(err => ({
-          title:   'Webpack',
-          message: err.message
-        }))
-      }))
-      .pipe(named())
-      .pipe(webpackStream(options, null, done))
-      .pipe(gulpIf(!isDevelopment, uglify()))
-      .pipe(gulp.dest('public/js'))
-      .on('data', function() {
-        if (firstBuildReady) {
-          callback();
-        }
-      });
+//   return gulp.src('app/js/*.js')
+//       .pipe(plumber({
+//         errorHandler: notify.onError(err => ({
+//           title:   'Webpack',
+//           message: err.message
+//         }))
+//       }))
+//       .pipe(named())
+//       .pipe(webpackStream(options, null, done))
+//       .pipe(gulpIf(!isDevelopment, uglify()))
+//       .pipe(gulp.dest('public/js'))
+//       .on('data', function() {
+//         if (firstBuildReady) {
+//           callback();
+//         }
+//       });
 
-});
+// });
 
 /*==============================
 CLEAN
@@ -227,7 +244,7 @@ gulp.task('clean', function() {
 СБОРКА build
 ===============================*/
 
-gulp.task('build', gulp.series('clean', gulp.parallel('styles:assets', 'pug', 'styles', 'webpack'), 'assets'));
+gulp.task('build', gulp.series('clean', gulp.parallel('styles:assets', 'pug', 'styles', 'script'), 'assets'));
 
 gulp.task('serve', function() {
   browserSync.init({
@@ -247,6 +264,7 @@ gulp.task('dev',
         gulp.parallel(
             'serve',
             function() {
+              gulp.watch('app/js/**/*.js', gulp.series('script'));
               gulp.watch('app/markups/**/*.pug', gulp.series('pug'));
               gulp.watch('app/styles/**/*.css', gulp.series('styles'));
               gulp.watch('app/assets/**/*.*', gulp.series('assets'));
