@@ -48,7 +48,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^2.0.0",
     "gulplog": "^1.0.0",
-    "jquery": "^3.1.1",
+    "jquery": "^1.12.4",
     "lodash.throttle": "^4.1.1",
     "lost": "^7.1.1",
     "normalize.css": "^5.0.0",
