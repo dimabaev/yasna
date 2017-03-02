@@ -2,11 +2,11 @@
 var myModale = (() => {
 
     // Инициализирует наш модуль
-    let init = () => {
+    var init = () => {
         _setUpListners();
     };
     // Назначаем события
-    let _setUpListners = () => {
+    var _setUpListners = () => {
     //   $('.photo-small').delegate('click', _triggerImg )  
     };
 
@@ -43,6 +43,8 @@ var myModale = (() => {
                 });
             }
         }
+
+        
     }());
 
     Slideshow.init();
@@ -51,7 +53,7 @@ var myModale = (() => {
 
 
     // swiper
-    let swiper = new Swiper('.swiper-container');
+    var swiper = new Swiper('.swiper-container');
 
 
     // Возвращаем объект (публичные методы)

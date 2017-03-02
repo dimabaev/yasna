@@ -70,7 +70,7 @@
         @media (max-width: 400px) {
            width: 290px;
            margin-left: -145px;
-           padding: 5px 5px;
+           padding: 3px 3px;
         }
 
         .col-sm-12 {
@@ -201,7 +201,14 @@ blockquote > p:first-child {
 
     .style-text--title {
         font-size: 22px;
-        font-weight: bold;       
+        font-weight: bold;
+
+        @media (max-width: 400px) {
+            width: 270px;
+            margin: auto;
+            margin-bottom: 10px;
+        }    
+
     }
 
     .text-calculation {
@@ -210,6 +217,7 @@ blockquote > p:first-child {
     }
 
     .text-calculation--span {
+        color: black !important;
         font-size: 24px;
         margin-left: 5px;
     }

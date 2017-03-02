@@ -63,12 +63,12 @@ let
               },
 
               js : {
-                location : 'app/js/main.js',
-                plugins  : 'app/js/_plugins/*.js'
+                location   : 'app/js/main.js',
+                plugins    : 'app/js/_plugins/*.js'
               },
 
-              browserSync : {
-                baseDir : 'app',
+              browserSync  : {
+                baseDir    : 'app',
                 watchPaths : ['public/*.html', 'public/styles/*.css', 'public/js/*.js']
               }
     }
